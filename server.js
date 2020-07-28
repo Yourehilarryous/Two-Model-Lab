@@ -1,16 +1,16 @@
 const express = require("express")
 const app = express()
 require('./db/db') 
-const Show = require("./models/netflix")
+const Service = require("./models/streamingservice")
 
 app.use(express.urlencoded({ extended: false }))
 
-//show route
-app.get("/:id", (req, res) => {
-    Show.findById(req.params.id, (err, foundShow) => {
-    // res.send("This works")
-    })
-})
+//Service route
+// app.get("/:id", (req, res) => {
+//     Service.findById(req.params.id, (err, foundService) => {
+//     // res.send("This works")
+//     })
+// })
 
 // create route
 app.get("/new", (req, res) => {
@@ -20,9 +20,9 @@ app.get("/new", (req, res) => {
 //index route
 app.get("/", (req, res) => {
 
-    Show.find({}, (err, allShows) => {
+    Service.find({}, (err, allServices) => {
         res.render("home.ejs", {
-            shows: allShows
+            services: allServices
         })
     })
 
@@ -32,7 +32,8 @@ app.get("/", (req, res) => {
 
 //post route
 app.post("/create", (req, res) => {
-    Show.create(req.body, (err, newShow) => {
+    Service.create(req.body, (err, newService) => {
+        console.log(newService)
         res.redirect("/")
     })
 })

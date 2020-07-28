@@ -7,9 +7,9 @@
 </head>
 <body>
     <h1>Home Page</h1>
-    <% shows.forEach(function(show) { %>
+    <% services.forEach(function(service) { %>
         <ul>
-            <li> <a href="/<%= show.id %> "><%= show.show %> </a> </li>
+            <li> <a href="/<%= service.id %> "><%= service.name %> </a> </li>
         </ul>
     <% }) %> 
 </body>
