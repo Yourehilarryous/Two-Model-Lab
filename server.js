@@ -5,12 +5,7 @@ const Service = require("./models/streamingservice")
 
 app.use(express.urlencoded({ extended: false }))
 
-//Service route
-// app.get("/:id", (req, res) => {
-//     Service.findById(req.params.id, (err, foundService) => {
-//     // res.send("This works")
-//     })
-// })
+
 
 // create route
 app.get("/new", (req, res) => {
@@ -25,8 +20,6 @@ app.get("/", (req, res) => {
             services: allServices
         })
     })
-
-    
 })
 
 
@@ -38,6 +31,14 @@ app.post("/create", (req, res) => {
     })
 })
 
+//Service route
+app.get("/:id", (req, res) => {
+    Service.findById(req.params.id, (err, foundService) => {
+        res.render("show.ejs", {
+            service: foundService
+        })
+    })
+})
 
 
 
