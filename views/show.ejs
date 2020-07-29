@@ -10,5 +10,9 @@
         Name: <%= service.name %> <br>
         CEO: <%= service.ceo %> <br>
         Shows: <%= service.shows %> 
+        <form action="/<%= service.id %>?_method=DELETE" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is the edit route</h1>
+    <form action="/<%= service.id %>?_method=PUT" method="post">
+    Name: <input type="text" name="name" value="<%= service.name %> " required>
+    CEO: <input type="text" name="ceo" required>
+    Shows: <input type="text" name="shows">
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
